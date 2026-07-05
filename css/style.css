@@ -1,0 +1,269 @@
+.wrapper {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #ededed;
+}
+
+/* 导航 */
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 50px;
+  background-color: #fff;
+  margin-bottom: 30px;
+  box-shadow: 4px 3px 10px #afafaf;
+  z-index: 999;
+}
+
+header .wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .wrapper .left h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+header .wrapper ul {
+  display: flex;
+}
+
+header li {
+  margin-left: 40px;
+}
+
+header li .active {
+  color: rgb(229, 174, 183);
+  border-bottom: 2px rgb(229, 174, 183) solid;
+}
+
+header li a:hover {
+  color: rgb(229, 174, 183);
+  border-bottom: 2px rgb(229, 174, 183) solid;
+}
+
+/* banner */
+.banner {
+  height: 400px;
+  background: url(../images/banner1.jpg) center/cover;
+  box-shadow: inset 0 0 8px #afafaf;
+}
+
+.banner .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  /* background-color: pink; */
+}
+
+.banner .txt h2 {
+  margin-bottom: 20px;
+}
+
+.banner .txt h3 {
+  margin-bottom: 20px;
+}
+
+.banner .txt p {
+  margin-bottom: 20px;
+}
+
+.banner .btn a {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.banner .btn .github {
+  margin-left: 20px;
+}
+
+.banner a:hover {
+  background-image: radial-gradient(50px at 20px 10px,
+      #fff 20%,
+      #ededed 80%);
+  border: 0;
+  box-shadow: 0 0 10px #afafaf;
+}
+
+/* 专业技能 */
+.skills {
+  height: 400px;
+}
+
+.common {
+  height: 100%;
+  margin-top: 30px;
+  padding-top: 66px;
+  background-color: #fff;
+  box-shadow: inset 0 0 10px #afafaf;
+  border-radius: 5px;
+}
+
+.skills .content {
+  height: 100%;
+}
+
+.common h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.skills ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.skills li {
+  width: 250px;
+  height: 150px;
+  padding: 20px;
+  background-color: #ededed;
+  border-radius: 5px;
+  transition: all .5s;
+}
+
+.skills li:hover {
+  transform: scale(1.1);
+}
+
+.common li h3 {
+  margin-bottom: 15px;
+  color: rgb(229, 174, 183);
+  font-weight: 700;
+}
+
+/* 项目 */
+.programm .wrapper {
+  height: 780px;
+  padding: 40px;
+}
+
+.programm li {
+  display: flex;
+  justify-content: space-between;
+  height: 180px;
+  margin-bottom: 30px;
+  padding: 30px;
+  box-shadow: 0 0 4px #afafaf;
+  border-radius: 5px;
+}
+
+.programm li:last-child {
+  margin-bottom: 0;
+}
+
+.programm li .right {
+  width: 650px;
+}
+
+/* 其他 */
+.another {
+  height: 550px;
+  margin-bottom: 30px;
+}
+
+.another .case {
+  display: flex;
+  justify-content: space-around;
+}
+
+.another .picture {
+  transform-style: preserve-3d;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transition: all .7s;
+}
+
+.another img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.another img:first-child {
+  transform: translateZ(150px);
+}
+
+.another img:last-child {
+  transform: rotateX(90deg) translateZ(150px);
+}
+
+.another .picture:hover {
+  transform: rotateX(-90deg);
+}
+
+.another .txt {
+  width: 800px;
+  margin-top: 80px;
+}
+
+.another .txt h3 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.another .txt p {
+  margin-bottom: 20px;
+}
+
+/* 联系 */
+.connect {
+  height: 230px;
+  margin-bottom: 30px;
+  background: url(../images/banner2.jpg) center/cover;
+  box-shadow: inset 0 0 8px #afafaf;
+}
+
+.connect .wrapper {
+  text-align: center;
+  padding: 30px;
+}
+
+.connect h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.connect p {
+  margin-bottom: 15px;
+}
+
+.connect p:last-child {
+  margin-bottom: 0;
+}
+
+.connect p a:hover {
+  color: rgb(229, 174, 183)
+}
+
+/* 页脚 */
+footer {
+  height: 50px;
+  background-color: #fff;
+  text-align: center;
+  padding: 5px;
+  box-shadow: 0 -4px 8px -2px #c4c4c4;
+}
+
+footer p {
+  font-size: 13px;
+}
