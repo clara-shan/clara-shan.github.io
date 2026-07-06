@@ -171,6 +171,32 @@ header li a:hover {
   width: 650px;
 }
 
+.programm li .left {
+  width: 400px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.programm .left img {
+  width: 100%;
+  height: auto;
+  animation: scrolling 10s linear infinite;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-45%);
+  }
+
+  100% {
+    transform: translateY(-85%);
+  }
+}
+
 /* 其他 */
 .another {
   height: 550px;
