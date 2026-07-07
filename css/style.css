@@ -197,6 +197,13 @@ header li a:hover {
   }
 }
 
+.programm .left video {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
 /* 其他 */
 .another {
   height: 550px;
