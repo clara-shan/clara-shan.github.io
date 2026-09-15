@@ -1,0 +1,38 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  height: 70px;
+  background-color: skyblue;
+}
+
+h1 {
+  font-size: 18px;
+  background-color: pink;
+}
+
+header ul {
+  display: flex;
+  align-items: center;
+  background-color: pink;
+}
+
+header li {
+  width: 112px;
+  height: 30px;
+  margin: 0 10px;
+  line-height: 30px;
+  text-align: center;
+  background-color: yellow;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+header .setting {
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 0;
+}
