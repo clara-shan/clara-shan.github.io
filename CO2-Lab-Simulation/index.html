@@ -15,22 +15,36 @@
     <h1>CO<sub>2</sub>制取与检验教学系统</h1>
     <nav>
       <ul>
-        <li>1. 视频教学</li>
-        <li>2. 3D仿真实验</li>
-        <li>3. 知识小测验</li>
-        <li>4. 知识回顾</li>
-        <li>5. 结课庆祝</li>
+        <li><a href="#" id="video" class="active">1. 视频教学</a></li>
+        <li><a href="#" id="experiment">2. 3D仿真实验</a></li>
+        <li><a href="#" id="test">3. 知识小测验</a></li>
+        <li><a href="#" id="review">4. 知识回顾</a></li>
+        <li><a href="#" id="over">5. 结课庆祝</a></li>
       </ul>
     </nav>
-    <button class="setting">设置</button>
+    <button class="btn-setting active">设置</button>
   </header>
 
-  <!-- <main>
-    <section>
-      <h2>实验操作步骤</h2>
+  <div class="container">
+    <main>
+      <section class="panel step-panel">
+        <h2>实验操作步骤</h2>
+        <p class="step-title">步骤：1. 气密性检查</p>
+        <button class="btn-execute"><a href="#" class="execute">执行：检查装置气密性</a></button>
+        <button class="btn-voice"><a href="#" class="voice">语音讲解当前步骤</a></button>
+      </section>
+    </main>
 
-    </section>
-  </main> -->
+    <aside class="panel monitor-panel">
+      <h3>实时仪器监控</h3>
+      <p>反应物：无</p>
+      <p>气密性：<span class="ok-text">合格</span> (密封良好)</p>
+      <p>CO<sub>2</sub>产量：0 ml</p>
+      <p>石灰水状态：澄清透明</p>
+      <hr>
+      <p class="tip">提示：鼠标悬停器材可查看名称与作用；按住左键旋转视角，滚轮缩放，右键平移。</p>
+    </aside>
+  </div>
 </body>
 
 </html>
