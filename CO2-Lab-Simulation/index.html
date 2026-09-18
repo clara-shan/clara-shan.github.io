@@ -15,36 +15,58 @@
     <h1>CO<sub>2</sub>制取与检验教学系统</h1>
     <nav>
       <ul>
-        <li><a href="#" id="video" class="active">1. 视频教学</a></li>
-        <li><a href="#" id="experiment">2. 3D仿真实验</a></li>
-        <li><a href="#" id="test">3. 知识小测验</a></li>
-        <li><a href="#" id="review">4. 知识回顾</a></li>
-        <li><a href="#" id="over">5. 结课庆祝</a></li>
+        <li><a href="#video" class="active">1. 视频教学</a></li>
+        <li><a href="#experiment" id="experiment">2. 3D仿真实验</a></li>
+        <li><a href="#test" id="test">3. 知识小测验</a></li>
+        <li><a href="#review" id="review">4. 知识回顾</a></li>
+        <li><a href="#over" id="over">5. 结课庆祝</a></li>
       </ul>
     </nav>
     <button class="btn-setting active">设置</button>
   </header>
 
-  <div class="container">
-    <main>
+  <main>
+    <div class="experiment-panel" id="experiment">
       <section class="panel step-panel">
-        <h2>实验操作步骤</h2>
+        <h2>第二关: 实验操作步骤</h2>
         <p class="step-title">步骤：1. 气密性检查</p>
-        <button class="btn-execute"><a href="#" class="execute">执行：检查装置气密性</a></button>
-        <button class="btn-voice"><a href="#" class="voice">语音讲解当前步骤</a></button>
+        <button class="btn-execute">执行：检查装置气密性</button>
+        <button class="btn-voice">语音讲解当前步骤</button>
       </section>
-    </main>
 
-    <aside class="panel monitor-panel">
-      <h3>实时仪器监控</h3>
-      <p>反应物：无</p>
-      <p>气密性：<span class="ok-text">合格</span> (密封良好)</p>
-      <p>CO<sub>2</sub>产量：0 ml</p>
-      <p>石灰水状态：澄清透明</p>
-      <hr>
-      <p class="tip">提示：鼠标悬停器材可查看名称与作用；按住左键旋转视角，滚轮缩放，右键平移。</p>
-    </aside>
-  </div>
+      <aside class="panel monitor-panel">
+        <h3>实时仪器监控</h3>
+        <p>反应物：<span>无</span></p>
+        <p>气密性：<span class="ok-text">未检测</span></p>
+        <p>CO<sub>2</sub>产量：<span>0</span> ml</p>
+        <p>石灰水状态：<span>澄清透明</span></p>
+        <hr>
+        <p class="tip">提示：鼠标悬停器材可查看名称与作用；按住左键旋转视角，滚轮缩放，右键平移。</p>
+      </aside>
+    </div>
+
+    <section class="teach-panel" id="video" style="display: none;">
+      <h2>第一关: 实验微课与视频教学预习</h2>
+      <figure>
+        <figcaption>请认真观看实验微课，学习气体发生装置装配规范与操作要领。</figcaption>
+        <video controls>
+          <source src="" type="video/mp4">你的浏览器不支持视频播放
+        </video>
+      </figure>
+      <button class="btn-next active">我已认真学完，进入 3D 仿真实验 </button>
+    </section>
+
+    <section class="teach-panel test-panel" id="test">
+      <h2>第三关: 知识小测(10小题)</h2>
+      <div class="modal-header">
+        <div class="quiz-badge">第 1/10 题</div>
+        <div class="quiz-score">满分 100 分 (每题 10 分)</div>
+      </div>
+      <div class="progress-bar"></div>
+      <div class="modal-body">
+      </div>
+    </section>
+  </main>
 </body>
 
 </html>
