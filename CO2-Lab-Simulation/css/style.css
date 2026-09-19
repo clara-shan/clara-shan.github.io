@@ -11,7 +11,7 @@ button {
   font-size: 16px;
 }
 
-/* header区域 */
+/* 头部导航 */
 header {
   display: flex;
   justify-content: space-between;
@@ -92,12 +92,11 @@ main {
   height: calc(100vh - 70px);
 }
 
-/* .experiment-panel区域 */
+/* 仿真实验区域 */
 .experiment-panel {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  display: none;
 }
 
 .experiment-panel .panel {
@@ -130,7 +129,7 @@ h2 {
 }
 
 .experiment-panel .step-panel .step-title {
-  color: #fd8a20;
+  color: #fc993d;
   font-size: 14px;
 }
 
@@ -178,7 +177,7 @@ h2 {
   border-color: #686869;
 }
 
-/* teach-panel */
+/* 视频教学区域 */
 .teach-panel {
   display: flex;
   flex-direction: column;
@@ -213,7 +212,7 @@ h2 {
   border-radius: 8px;
 }
 
-.teach-panel .btn-next {
+.teach-panel button {
   width: 750px;
   height: 40px;
   background: linear-gradient(to right, #00d4ff, #8b5cf6);
@@ -221,7 +220,7 @@ h2 {
   background-color: #00d4ff;
 }
 
-/* .test-panel */
+/* 小测验区域 */
 .test-panel {
   gap: 10px;
 }
@@ -247,4 +246,59 @@ h2 {
   height: 5px;
   border-radius: 10px;
   background-color: #00d4ff;
+}
+
+/* 知识回顾 */
+.review-panel {
+  gap: 10px;
+}
+
+.review-panel .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #3a3b42;
+}
+
+.review-panel h4 {
+  color: #5ce3fe;
+}
+
+.review-panel p {
+  font-size: 14px;
+}
+
+.review-panel small {
+  font-size: 12px;
+}
+
+/* 结课 */
+.over-panel {
+  align-items: center;
+  gap: 10px;
+}
+
+.over-panel h2 {
+  font-size: 25px;
+  color: #fc993d;
+}
+
+.over-panel .score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+  width: 750px;
+  border-radius: 8px;
+  background-color: #333;
+}
+
+.over-panel .score p:first-child {
+  font-weight: 700;
+  font-size: 50px;
+  color: #fc993d;
 }

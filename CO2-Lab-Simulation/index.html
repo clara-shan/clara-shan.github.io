@@ -10,22 +10,23 @@
 </head>
 
 <body>
-
+  <!-- 头部导航 -->
   <header>
     <h1>CO<sub>2</sub>制取与检验教学系统</h1>
     <nav>
       <ul>
         <li><a href="#video" class="active">1. 视频教学</a></li>
         <li><a href="#experiment" id="experiment">2. 3D仿真实验</a></li>
-        <li><a href="#test" id="test">3. 知识小测验</a></li>
-        <li><a href="#review" id="review">4. 知识回顾</a></li>
-        <li><a href="#over" id="over">5. 结课庆祝</a></li>
+        <li><a href="#test">3. 知识小测验</a></li>
+        <li><a href="#review">4. 知识回顾</a></li>
+        <li><a href="#over">5. 结课庆祝</a></li>
       </ul>
     </nav>
     <button class="btn-setting active">设置</button>
   </header>
-
+  <!-- 页面主体 -->
   <main>
+    <!-- 仿真实验 -->
     <div class="experiment-panel" id="experiment">
       <section class="panel step-panel">
         <h2>第二关: 实验操作步骤</h2>
@@ -44,7 +45,7 @@
         <p class="tip">提示：鼠标悬停器材可查看名称与作用；按住左键旋转视角，滚轮缩放，右键平移。</p>
       </aside>
     </div>
-
+    <!-- 视频教学 -->
     <section class="teach-panel" id="video" style="display: none;">
       <h2>第一关: 实验微课与视频教学预习</h2>
       <figure>
@@ -53,10 +54,10 @@
           <source src="" type="video/mp4">你的浏览器不支持视频播放
         </video>
       </figure>
-      <button class="btn-next active">我已认真学完，进入 3D 仿真实验 </button>
+      <button class="btn-next active">我已认真学完，进入 3D 仿真实验</button>
     </section>
-
-    <section class="teach-panel test-panel" id="test">
+    <!-- 小测试 -->
+    <section class="teach-panel test-panel" id="test" style="display: none;">
       <h2>第三关: 知识小测(10小题)</h2>
       <div class="modal-header">
         <div class="quiz-badge">第 1/10 题</div>
@@ -65,6 +66,39 @@
       <div class="progress-bar"></div>
       <div class="modal-body">
       </div>
+    </section>
+    <!-- 知识回顾 -->
+    <section class="teach-panel review-panel" id="review" style="display: none;">
+      <h2>第四关: 本课知识点精华回顾与复盘</h2>
+      <div class="box principle">
+        <h4>核心反应原理</h4>
+        <p><b>化学方程式：</b>CaCO₃ + 2HCl = CaCl₂ + H₂O + CO₂↑</p>
+        <small>不用稀硫酸是因为生成微溶的 CaSO₄ 会覆盖在大理石表面阻碍反应；不用浓盐酸是因为其挥发出的 HCl 气体会使气体不纯。</small>
+      </div>
+      <div class="box principle">
+        <h4>装置规范与操作</h4>
+        <p><b>先固后液：</b>先装大理石，塞紧橡胶塞后再从漏斗注入稀盐酸。</p>
+        <p><b>长颈漏斗液封：</b>下端管口必须插入液面以下，防止生成的 CO₂ 从漏斗口逸出。</p>
+      </div>
+      <div class="box principle">
+        <h4>收集、验满与检验</h4>
+        <p><b>收集方法：</b>向上排空气法（因为 CO₂ 密度比空气大，且能溶于水）。</p>
+        <p><b>验满：</b>燃着的木条平放在集气瓶口，火焰熄灭则说明已满。</p>
+        <p><b>检验：</b>通入澄清石灰水，石灰水变乳白浑浊。</p>
+      </div>
+      <button class="btn-review active">复习完毕，查看我的最终学习成果</button>
+    </section>
+
+    <!-- 结课 -->
+    <section class="teach-panel over-panel" id="over" style="display: none;">
+      <h2>恭喜完成全部课程!</h2>
+      <small>你已圆满通过视频预习、3D实验、实战小测与知识复盘！</small>
+      <div class="score">
+        <p>90</p>
+        <p>测试评价：化学小天才</p>
+      </div>
+      <div class="learing-status"></div>
+      <button class="btn-retry active">重新体验课程</button>
     </section>
   </main>
 </body>
