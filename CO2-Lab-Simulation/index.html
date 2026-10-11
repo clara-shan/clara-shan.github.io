@@ -16,7 +16,7 @@
     <nav>
       <ul>
         <li><a href="#video" class="active">1. 视频教学</a></li>
-        <li><a href="#experiment" id="experiment">2. 3D仿真实验</a></li>
+        <li><a href="#experiment">2. 3D仿真实验</a></li>
         <li><a href="#test">3. 知识小测验</a></li>
         <li><a href="#review">4. 知识回顾</a></li>
         <li><a href="#over">5. 结课庆祝</a></li>
@@ -26,8 +26,18 @@
   </header>
   <!-- 页面主体 -->
   <main>
+    <!-- 设置 -->
+    <section class="setting" style="display: none;">
+      <div class="header">
+        <h2>系统设置</h2>
+        <span>X</span>
+      </div>
+      <p>环境光照强度</p>
+      <div class="progress-bar"></div>
+      <label><input type="checkbox" checked>开启实验步骤语音向导</label>
+    </section>
     <!-- 仿真实验 -->
-    <div class="experiment-panel" id="experiment">
+    <div class="experiment-panel" id="experiment" style="display: none;">
       <section class="panel step-panel">
         <h2>第二关: 实验操作步骤</h2>
         <p class="step-title">步骤：1. 气密性检查</p>
@@ -46,13 +56,15 @@
       </aside>
     </div>
     <!-- 视频教学 -->
-    <section class="teach-panel" id="video" style="display: none;">
+    <section class="teach-panel" id="video">
       <h2>第一关: 实验微课与视频教学预习</h2>
       <figure>
         <figcaption>请认真观看实验微课，学习气体发生装置装配规范与操作要领。</figcaption>
-        <video controls>
-          <source src="" type="video/mp4">你的浏览器不支持视频播放
-        </video>
+        <div class="video">
+          <video controls>
+            <source src="./assets/二氧化碳的实验室制取.mp4" type="video/mp4">你的浏览器不支持视频播放
+          </video>
+        </div>
       </figure>
       <button class="btn-next active">我已认真学完，进入 3D 仿真实验</button>
     </section>
@@ -65,6 +77,21 @@
       </div>
       <div class="progress-bar"></div>
       <div class="modal-body">
+        <h3>1. 实验室制取二氧化碳最适宜选用的药品组合是？</h3>
+        <ul>
+          <li>
+            <a href="" class="answerA">A. 碳酸钠粉末与稀盐酸</p></a>
+          </li>
+          <li>
+            <a href="" class="answerB">A. 碳酸钠粉末与稀盐酸</p></a>
+          </li>
+          <li>
+            <a href="" class="answerC">A. 碳酸钠粉末与稀盐酸</p></a>
+          </li>
+          <li>
+            <a href="" class="answerD">A. 碳酸钠粉末与稀盐酸</p></a>
+          </li>
+        </ul>
       </div>
     </section>
     <!-- 知识回顾 -->
@@ -100,7 +127,14 @@
       <div class="learing-status"></div>
       <button class="btn-retry active">重新体验课程</button>
     </section>
+
+    <!-- 警告提示 -->
+    <section class="toast-msg" style="display: none;">
+      <p>暂未解锁结课庆祝!请先完成:</p>
+      <p>1. 视频教学</p>
+    </section>
   </main>
 </body>
+<script src="./logic.js"></script>
 
 </html>
