@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CO₂实验室制取与性质检验虚拟仿真教学系统</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <!-- 3D试验台画布挂载区 -->
+  <div class="canvas-container"></div>
+
+  <!-- 鼠标悬停在3D器材上的跟随提示框 -->
+  <div class="hover-tooltip"></div>
+
+  <!-- 头部导航 -->
+  <header>
+    <h1>CO<sub>2</sub>制取与检验教学系统</h1>
+    <nav>
+      <ul>
+        <li><a href="#video" class="active">1. 视频教学</a></li>
+        <li><a href="#experiment">2. 3D仿真实验</a></li>
+        <li><a href="#test">3. 知识小测验</a></li>
+        <li><a href="#review">4. 知识回顾</a></li>
+        <li><a href="#over">5. 结课庆祝</a></li>
+      </ul>
+    </nav>
+    <button class="btn-setting active">设置</button>
+  </header>
+  <!-- 页面主体 -->
+  <main>
+    <!-- 设置 -->
+    <section class="setting" style="display: none;">
+      <div class="header">
+        <h2>系统设置</h2>
+        <span>X</span>
+      </div>
+      <label class="setting-label" for="light-range">环境光照亮度：</label>
+      <input type="range" id="light-range" min="0.2" max="2" step="0.1" value="1.0" onchange="changeLight(this.value)">
+      <label><input type="checkbox" class="voice" checked>开启实验步骤语音向导</label>
+    </section>
+
+    <!-- 视频教学 -->
+    <section class="teach-panel" id="video">
+      <h2>第一关: 实验微课与视频教学预习</h2>
+      <figure>
+        <figcaption>请认真观看实验微课，学习气体发生装置装配规范与操作要领。</figcaption>
+        <div class="video">
+          <video controls>
+            <source src="./assets/二氧化碳的实验室制取.mp4" type="video/mp4">你的浏览器不支持视频播放
+          </video>
+        </div>
+      </figure>
+      <button class="btn-next active">我已认真学完，进入 3D 仿真实验</button>
+    </section>
+
+    <!-- 仿真实验 -->
+    <div class="experiment-panel" id="experiment" style="display: none;">
+      <section class="panel step-panel">
+        <h2>第二关: 实验操作步骤</h2>
+        <p class="step-title">步骤：1. 气密性检查</p>
+        <button class="btn-execute" onclick="experimentStep()">执行：检查装置气密性</button>
+        <button class="btn-voice">语音讲解当前步骤</button>
+      </section>
+
+      <aside class="panel monitor-panel">
+        <h3>实时仪器监控</h3>
+        <p>反应物：<span class="reactant">无</span></p>
+        <p>气密性：<span class="ok-text">未检测</span></p>
+        <p>CO<sub>2</sub>产量：<span class="production">0</span> ml</p>
+        <p>石灰水状态：<span class="state">澄清透明</span></p>
+        <hr>
+        <p class="tip">提示：鼠标悬停器材可查看名称与作用；按住左键旋转视角，滚轮缩放，右键平移。</p>
+      </aside>
+    </div>
+    <!-- 小测试 -->
+    <section class="teach-panel test-panel" id="test" style="display: none;">
+      <h2>第三关: 知识小测(10小题)</h2>
+      <div class="modal-header">
+        <div class="quiz-badge">第 1/10 题</div>
+        <div class="quiz-score">满分 100 分 (每题 10 分)</div>
+      </div>
+      <div class="progress-bar"></div>
+      <div class="modal-body">
+        <h3>1. 实验室制取二氧化碳最适宜选用的药品组合是？</h3>
+        <div class="quiz-questions">
+          题目加载中...
+        </div>
+        <div class="quiz-feedback" style="display: none;">
+          <p class="correct-answer"></p>
+          <p class="explanation"></p>
+        </div>
+        <button class="btn" style="display: none;">下一题</button>
+      </div>
+    </section>
+
+    <!-- 知识回顾 -->
+    <section class="teach-panel review-panel" id="review" style="display: none;">
+      <h2>第四关: 本课知识点精华回顾与复盘</h2>
+      <div class="box principle">
+        <h4>核心反应原理</h4>
+        <p><b>化学方程式：</b>CaCO₃ + 2HCl = CaCl₂ + H₂O + CO₂↑</p>
+        <small>不用稀硫酸是因为生成微溶的 CaSO₄ 会覆盖在大理石表面阻碍反应；不用浓盐酸是因为其挥发出的 HCl 气体会使气体不纯。</small>
+      </div>
+      <div class="box principle">
+        <h4>装置规范与操作</h4>
+        <p><b>先固后液：</b>先装大理石，塞紧橡胶塞后再从漏斗注入稀盐酸。</p>
+        <p><b>长颈漏斗液封：</b>下端管口必须插入液面以下，防止生成的 CO₂ 从漏斗口逸出。</p>
+      </div>
+      <div class="box principle">
+        <h4>收集、验满与检验</h4>
+        <p><b>收集方法：</b>向上排空气法（因为 CO₂ 密度比空气大，且能溶于水）。</p>
+        <p><b>验满：</b>燃着的木条平放在集气瓶口，火焰熄灭则说明已满。</p>
+        <p><b>检验：</b>通入澄清石灰水，石灰水变乳白浑浊。</p>
+      </div>
+      <button class="btn-review active">复习完毕，查看我的最终学习成果</button>
+    </section>
+
+    <!-- 结课 -->
+    <section class="teach-panel over-panel" id="over" style="display: none;">
+      <h2>恭喜完成全部课程!</h2>
+      <small>你已圆满通过视频预习、3D实验、实战小测与知识复盘！</small>
+      <div class="result">
+        <p class="score">90</p>
+        <p class="evaluate">测试评价：化学小天才</p>
+      </div>
+      <div class="learing-status">
+        <p class="correct"></p>
+        <p class="incorrect"></p>
+        <p class="total"></p>
+      </div>
+      <button class="btn-retry active">重新体验课程</button>
+    </section>
+
+    <!-- 警告提示 -->
+    <section class="toast-msg" style="display: none;">
+      <p>暂未解锁结课庆祝!请先完成:</p>
+      <p>1. 视频教学</p>
+    </section>
+  </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="./logic.js"></script>
+<script src="./scene.js"></script>
+
+</html>

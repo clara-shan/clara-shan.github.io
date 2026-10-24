@@ -1,0 +1,532 @@
+body {
+  background-color: #13151f;
+}
+
+button {
+  background: linear-gradient(to right, #00d4ff, #8b5cf6);
+  color: #fff;
+  text-shadow:
+    0 0 1px #c7e9f7,
+    0 0 1px #c7e9f7;
+  font-size: 16px;
+}
+
+body,
+header,
+main {
+  user-select: none;
+  -webkit-user-select: none;
+  /* 兼容 Chrome */
+}
+
+main {
+  pointer-events: none;
+  /* 主容器不拦鼠标，事件落到下面的画布 */
+}
+
+/* 只有这些真正的面板/按钮重新接收鼠标 */
+main .step-panel,
+main .monitor-panel,
+main .teach-panel,
+main .test-panel,
+main .review-panel,
+main .over-panel,
+main .setting,
+main button,
+main a {
+  pointer-events: auto;
+}
+
+
+.canvas-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.canvas-container canvas {
+  display: block;
+}
+
+/* 鼠标悬停 3D 器材跟随提示框 */
+.hover-tooltip {
+  position: absolute;
+  display: none;
+  z-index: 50;
+  pointer-events: none;
+  background: rgba(16, 20, 30, 0.88);
+  border: 1px solid #409eff;
+  border-radius: 6px;
+  padding: 8px 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 10px rgba(64, 158, 255, 0.4);
+  transform: translate(15px, 15px);
+  transition: opacity 0.15s ease;
+}
+
+.hover-tooltip .tip-title {
+  color: #409eff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.hover-tooltip .tip-desc {
+  color: #dcdfe6;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+header,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* 头部导航 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 0 50px;
+  height: 70px;
+  border: 1px solid #3a3b42;
+  border-radius: 40px;
+  box-shadow: inset 3px 0 3px rgba(80, 79, 79, 0.2),
+    /* 左边缘 → 向右的内阴影 */
+    inset -3px 0 3px rgba(80, 79, 79, 0.2),
+    /* 右边缘 → 向左的内阴影 */
+    inset 0 3px 3px rgba(80, 79, 79, 0.2),
+    /* 上边缘 → 向下的内阴影 */
+    inset 0 -3px 3px rgba(80, 79, 79, 0.2);
+  /* background-color: skyblue; */
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #00d4ff;
+  /* background-color: pink; */
+}
+
+header ul {
+  display: flex;
+  align-items: center;
+  /* background-color: pink; */
+}
+
+header li a {
+  display: inline-block;
+  width: 112px;
+  height: 30px;
+  margin: 0 10px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 15px;
+  color: #d9d9d9;
+  font-size: 14px;
+  background-color: #3a3b42;
+  transition: all 0.2 ease;
+}
+
+header li a:hover {
+  border: 1px solid #00d4ff;
+  color: #fff;
+  text-shadow:
+    0 0 1px #c7e9f7,
+    0 0 1px #c7e9f7;
+}
+
+header .active {
+  background: linear-gradient(to right, #00d4ff, #8b5cf6);
+  color: #fff;
+  text-shadow:
+    0 0 1px #c7e9f7,
+    0 0 1px #c7e9f7;
+}
+
+header .done,
+header .done:hover,
+header .done.active {
+  color: #08b352;
+  border: none;
+  background-color: rgba(8, 132, 14, 0.3);
+  background-image: none;
+  text-shadow: none;
+}
+
+header .done.active {
+  font-weight: 700;
+}
+
+header .btn-setting {
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+header .btn-setting:hover {
+  cursor: pointer;
+  box-shadow: 0 10px 7px rgba(31, 62, 72, 0.7);
+  transform: translateY(-2px);
+}
+
+/* main区域 */
+main {
+  position: relative;
+  height: calc(100vh - 70px);
+}
+
+/* 设置 */
+.setting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #00d4ff;
+  background-color: rgba(56, 59, 68);
+}
+
+.setting .header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.setting h2 {
+  color: #fff;
+}
+
+.setting input {
+  margin-right: 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* 视频教学区域 */
+.teach-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 25px;
+  width: 800px;
+  border: 1px solid #30b5d0;
+  border-radius: 10px;
+  background-color: rgb(13, 13, 13, 0.8);
+}
+
+.teach-panel h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.teach-panel figcaption {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #d9d9d9;
+  /* text-align: center; */
+}
+
+.teach-panel .video {
+  width: 750px;
+  height: 450px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.teach-panel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teach-panel button {
+  width: 750px;
+  height: 40px;
+  background: linear-gradient(to right, #00d4ff, #8b5cf6);
+  border-radius: 5px;
+  background-color: #00d4ff;
+}
+
+/* 仿真实验区域 */
+.experiment-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.experiment-panel .panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 50px;
+  padding: 20px 20px;
+  border-radius: 15px;
+  background-color: rgb(13, 13, 13, 0.8);
+  box-shadow: inset 3px 0 3px rgba(80, 79, 79, 0.2),
+    /* 左边缘 → 向右的内阴影 */
+    inset -3px 0 3px rgba(80, 79, 79, 0.2),
+    /* 右边缘 → 向左的内阴影 */
+    inset 0 3px 3px rgba(80, 79, 79, 0.2),
+    /* 上边缘 → 向下的内阴影 */
+    inset 0 -3px 3px rgba(80, 79, 79, 0.2);
+}
+
+.experiment-panel .step-panel {
+  gap: 12px;
+  width: 300px;
+  /* height: 220px; */
+  /* background-color: pink; */
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00d4ff;
+}
+
+.experiment-panel .step-panel .step-title {
+  color: #fc993d;
+  font-size: 14px;
+}
+
+.experiment-panel .step-panel button {
+  display: block;
+  height: 40px;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #3a3b42;
+}
+
+.experiment-panel .step-panel button:hover {
+  background-color: #7d7e7f;
+}
+
+.experiment-panel .step-panel a::after {
+  background-color: #30b5d0;
+}
+
+.experiment-panel .monitor-panel {
+  gap: 12px;
+  width: 300px;
+}
+
+.experiment-panel .monitor-panel h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00d4ff;
+}
+
+.experiment-panel .monitor-panel p {
+  font-size: 14px;
+}
+
+.experiment-panel .monitor-panel .tip {
+  font-size: 12px;
+  color: #7f7f81;
+}
+
+.experiment-panel .monitor-panel hr {
+  border-color: #686869;
+}
+
+/* 小测验区域 */
+.test-panel {
+  width: 500px;
+  gap: 10px;
+}
+
+.test-panel .modal-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.test-panel .quiz-badge {
+  padding: 6px;
+  background: linear-gradient(to right, #00d4ff, #8b5cf6);
+  border-radius: 5px;
+}
+
+.test-panel .quiz-score {
+  color: #00d4ff;
+}
+
+.test-panel .progress-bar {
+  height: 5px;
+  border-radius: 10px;
+  background-color: #00d4ff;
+}
+
+.test-panel .modal-body h3 {
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.test-panel .modal-body li {
+  margin: 10px 0;
+}
+
+.test-panel .modal-body .quiz-btn {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  align-items: center;
+  padding: 0 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-shadow: none;
+  cursor: pointer;
+  border: 1px solid rgba(122, 122, 122, 0.5);
+  background: rgba(56, 59, 68, 0.3);
+  color: #fff;
+  font-size: 14px;
+}
+
+.test-panel .modal-body .quiz-btn:hover {
+  border: 1px solid #00d4ff;
+  background-color: rgba(56, 59, 68);
+}
+
+.test-panel .modal-body .correct {
+  color: #08b352;
+  border: 1px solid #08b352;
+  text-shadow: none;
+  background-color: rgba(8, 132, 14, 0.3);
+}
+
+.test-panel .modal-body .wrong {
+  color: #f6485f;
+  border: 1px solid #f6485f;
+  text-shadow: none;
+  background-color: rgba(241, 55, 55, 0.3);
+}
+
+.test-panel .quiz-feedback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.test-panel .modal-body .btn {
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* 知识回顾 */
+.review-panel {
+  gap: 10px;
+}
+
+.review-panel .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #3a3b42;
+}
+
+.review-panel h4 {
+  color: #5ce3fe;
+}
+
+.review-panel p {
+  font-size: 14px;
+}
+
+.review-panel small {
+  font-size: 12px;
+}
+
+/* 结课 */
+.over-panel {
+  align-items: center;
+  gap: 10px;
+  width: 600px;
+  color: rgb(217, 217, 217, 0.7);
+}
+
+.over-panel h2 {
+  font-size: 25px;
+  color: #fc993d;
+}
+
+.over-panel .result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+  width: 500px;
+  border: #db8433 dotted 1px;
+  border-top: none;
+  border-radius: 8px;
+  background-color: #333;
+}
+
+.over-panel .score {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 50px;
+  color: #fc993d;
+}
+
+.over-panel .learing-status {
+  font-size: 12px;
+}
+
+.over-panel button {
+  width: 500px;
+}
+
+/* 警告提示 */
+.toast-msg {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 500px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(245, 108, 108, 0.92);
+  z-index: 99;
+}
+
+.toast-msg p:first-child {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.toast-msg p:last-child {
+  font-size: 14px;
+  font-weight: 700;
+}
